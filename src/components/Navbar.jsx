@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { motion } from "framer-motion"
+import { Store } from '../Store'
 let links = [
     {
         path: "/shop",
         title: "Shop"
     },
     {
-        path: "/collection",
-        title: "Collection"
+        path: "/",
+        title: "Home"
     },
     {
         path: "/about",
@@ -24,6 +25,7 @@ const variants = {
     closed: { opacity: 0, x: "-100%" },
 }
 export default function Navbar() {
+    const cartItem=useContext(Store).cart.list.length
     const [isOpen, setIsOpen] = useState(false)
     return (
         <>
@@ -37,7 +39,7 @@ export default function Navbar() {
                     <li className='font-black'><a href="/">Fashion</a></li>
                 </ul>
                 <ul className=' flex justify-center items-center space-x-10 w-1/3 max-lg:space-x-6'>
-                    <li className=' bold cursor-pointer'><NavLink to={"/cart"} className={({ isActive }) => isActive ? "text-black font-bold" : ""}>Cart ( 0 )</NavLink></li>
+                    <li className=' bold cursor-pointer'><NavLink to={"/cart"} className={({ isActive }) => isActive ? "text-black font-bold" : ""}>Cart ( {cartItem} )</NavLink></li>
                     <li className=' bold'><a href="/login">Login</a></li>
                 </ul>
             </div>
@@ -51,7 +53,7 @@ export default function Navbar() {
                     {links.map((link) => {
                         return (<li key={link.title} ><a href={link.path}>{link.title}</a> </li>)
                     })}
-                    <li className=' bold cursor-pointer'>Cart ( 0 )</li>
+                    <li className=' bold cursor-pointer'>Cart</li>
                     <li className=' bold'><a href="/login">Login</a></li>
                 </ul>
                 <div className='absolute w-screen h-[50px] flex left-0 bottom-0  justify-between items-center'>

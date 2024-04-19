@@ -1,56 +1,18 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-export default function ProductItem() {
+export default function ProductItem({ item }) {
+    const navigate=useNavigate()
     return (
-        <div className=" grid grid-cols-4 w-[90%] mt-10 ">
-            <div className='w-full justify-center items-center cursor-pointer mb-10'>
-                <img src="/images/p1.jpg" alt="..." className='  w-[95%] h-auto cursor-pointer' />
-                <p className="font-semibold mt-2">PY Tshirt</p>
-                <p className='font-light'>clasic t shirt for daily use</p>
-                <p className='font-semibold'>$90</p>
-            </div>
-            <div className='w-full justify-center items-center cursor-pointer  mb-10'>
-                <img src="/images/p7.jpg" alt="..." className='  w-[95%] h-auto cursor-pointer' />
-                <p className="font-semibold mt-2">PY Tshirt</p>
-                <p className='font-light'>clasic t shirt for daily use</p>
-                <p className='font-semibold'>$90</p>
-            </div>
-            <div className='w-full justify-center items-center cursor-pointer  mb-10'>
-                <img src="/images/p5.jpg" alt="..." className='  w-[95%] h-auto cursor-pointer' />
-                <p className="font-semibold mt-2">PY Tshirt</p>
-                <p className='font-light'>clasic t shirt for daily use</p>
-                <p className='font-semibold'>$90</p>
-            </div>
-            <div className='w-full justify-center items-center cursor-pointer  mb-10'>
-                <img src="/images/p4.jpg" alt="..." className=' w-[95%] h-auto cursor-pointer' />
-                <p className="font-semibold mt-2">PY Tshirt</p>
-                <p className='font-light'>clasic t shirt for daily use</p>
-                <p className='font-semibold'>$90</p>
-            </div>
-            <div className='w-full justify-center items-center cursor-pointer  mb-10'>
-                <img src="/images/p11.jpg" alt="..." className='  w-[95%] h-auto cursor-pointer' />
-                <p className="font-semibold mt-2">PY Tshirt</p>
-                <p className='font-light'>clasic t shirt for daily use</p>
-                <p className='font-semibold'>$90</p>
-            </div>
-            <div className='w-full justify-center items-center cursor-pointer  mb-10'>
-                <img src="/images/p6.jpg" alt="..." className='  w-[95%] h-auto cursor-pointer' />
-                <p className="font-semibold mt-2">PY Tshirt</p>
-                <p className='font-light'>clasic t shirt for daily use</p>
-                <p className='font-semibold'>$90</p>
-            </div>
-            <div className='w-full justify-center items-center cursor-pointer  mb-10'>
-                <img src="/images/p9.jpg" alt="..." className='  w-[95%] h-auto cursor-pointer' />
-                <p className="font-semibold mt-2">PY Tshirt</p>
-                <p className='font-light'>clasic t shirt for daily use</p>
-                <p className='font-semibold'>$90</p>
-            </div>
-            <div className='w-full justify-center items-center cursor-pointer  mb-10'>
-                <img src="/images/p10.jpg" alt="..." className=' w-[95%] h-auto cursor-pointer' />
-                <p className="font-semibold mt-2">PY Tshirt</p>
-                <p className='font-light'>clasic t shirt for daily use</p>
-                <p className='font-semibold'>$90</p>
-            </div>
+
+        <div className='w-full justify-center items-center cursor-pointer mb-10'>
+            <img src={item.imageUrl} alt="..." className='  w-[95%] h-auto cursor-pointer' onClick={()=>{
+                navigate("/product/"+item.id)
+            }} />
+            <p className="font-semibold mt-2">{item.title}</p>
+            <p className='font-light'>{item.description}</p>
+            <p className='font-semibold'>${item.cost}</p>
         </div>
+
     )
 }

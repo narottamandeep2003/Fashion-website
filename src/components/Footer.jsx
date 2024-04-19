@@ -51,7 +51,7 @@ export default function Footer() {
       <div className='w-screen h-[60px] flex justify-center border-t'>
         <div className='w-[90%] h-full flex mt-3 items-center justify-between'>
           <div className=' space-x-3 font-light'>
-            <span className=' cursor-pointer  text-gray-500 font-light'><i class="bi bi-apple mr-1"></i>pay</span>
+            <span className=' cursor-pointer  text-gray-500 font-light'><i className="bi bi-apple mr-1"></i>pay</span>
             <span className=' cursor-pointer  text-gray-500 font-light'> <span>PayPal</span></span>
             <span className=' cursor-pointer  text-gray-500 font-light'><span>Visa</span></span>
           </div>

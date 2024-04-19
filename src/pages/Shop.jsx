@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import ProductItem from "../components/ProductItem"
+import { Store } from '../Store';
 let collections = ["Tshirt", "Pants", "Jacket", "Hoodies", "Short"]
 export default function Shop() {
     const [target, setTarget] = useState("Tshirt");
-
+    let Item=useContext(Store).itemList;
     return (
         <>
             {/* <div className='w-[400px] h-[calc(100vh-70px)] bg-red-300 absolute left-0 t-[70px]'>
@@ -20,10 +21,14 @@ export default function Shop() {
                             onClick={() => { setTarget(collection) }}
                         >{collection}</button>
                     ))}
-                    <button className=' border border-black rounded-full pl-4 pr-4 pt-1 pb-1 bg-black text-white cursor-pointer'><i class="bi bi-sliders"></i></button>
+                    <button className=' border border-black rounded-full pl-4 pr-4 pt-1 pb-1 bg-black text-white cursor-pointer'><i className="bi bi-sliders"></i></button>
                 </div>
                 <div className='flex flex-col items-center justify-center  mb-10 mt-5'>
-                    <ProductItem></ProductItem>
+                    <div className=" grid grid-cols-4 w-[90%] mt-10 ">
+                        {Item.map((item) => {
+                            return <ProductItem key={item.id} item={item}></ProductItem>
+                        })}
+                    </div>
                 </div>
             </div>
         </>
