@@ -40,7 +40,7 @@ export default function Navbar() {
                 </ul>
                 <ul className=' flex justify-center items-center space-x-10 w-1/3 max-lg:space-x-6'>
                     <li className=' bold cursor-pointer'><NavLink to={"/cart"} className={({ isActive }) => isActive ? "text-black font-bold" : ""}>Cart ( {cartItem} )</NavLink></li>
-                    <li className=' bold'><a href="/login">Login</a></li>
+                    <li className=' bold'><NavLink to={"/login"} className={({ isActive }) => isActive ? "text-black font-bold" : ""}>Login</NavLink></li>
                 </ul>
             </div>
 

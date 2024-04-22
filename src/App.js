@@ -1,4 +1,5 @@
 import './App.css';
+import './Login.css';
 import {
   createBrowserRouter,
   RouterProvider
@@ -13,6 +14,8 @@ import AboutUs from './pages/AboutUs';
 import Trending from './pages/Trending';
 import { Store } from './Store';
 import { useState } from 'react';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
 
 const router = createBrowserRouter([
   {
@@ -55,6 +58,16 @@ const router = createBrowserRouter([
         element: <Payment></Payment>
       }
     ]
+  },
+  {
+    path: "/login",
+    exact: true,
+    element:<Login></Login>
+  },
+  {
+    path: "/signup",
+    exact: true,
+    element:<SignUp></SignUp>
   },
   {
     path: "*",
